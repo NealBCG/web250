@@ -53,3 +53,4 @@ Echo "<p>Chair1 functions as " . $chair1->function . ". It was made in a " . $ch
 Echo "<p>Chair2 functions as " . $chair2->function . ". It was made in a " . $chair2->style. " style. It was made in the year " . $chair2->get_year() . ". Chair2 " . $chair2->seatCushion . ", " . $chair2->arms . ", and ". $chair2->rockers . ". Chair2 " . $chair2->isAntique($chair2->get_year(), 2023) . "</p>";
 
 ?>
+
