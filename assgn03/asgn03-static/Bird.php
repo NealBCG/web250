@@ -1,31 +1,36 @@
 <?php
 
-class Bird {
-    var $habitat;
-    var $food;
-    var $nesting = "tree";
-    var $conservation;
-    var $song = "chirp";
-    var $flying = "yes";
+  class Bird {
+    public $habitat;
+    public $food;
+    public $nesting = "tree";
+    public $conservation;
+    public $song = "chirp";
+    public $flying = "yes";
+    public static $instance_count = 0;
+    public static $egg_num = 0;
 
     function can_fly() {
-        if ( $this->flying == "yes" ) {
-            $flying_string = "can fly";
-        } else {
-            $flying_string = "is stuck on the ground";
-        }
-        return  $flying_string ;
+      ($this->flying == "yes") ? $flying_string = "can fly" : $flying_string = "is stuck on the ground";
+      return  $flying_string;
     }
-}
 
-class YellowBelliedFlyCatcher extends Bird {
-    var $name = "yellow-bellied flycatcher";
-    var $diet = "mostly insects.";
-    var $song = "flat chilk";
-}
+    public static function create() {
+      self::$instance_count++;
+      $newClass = get_called_class();
+      return new $newClass;
+    }
+  }
 
-class Kiwi extends Bird {
-    var $name = "kiwi";
-    var $diet = "omnivorous";
-    var $flying = "no";
-}
+  class YellowBelliedFlyCatcher extends Bird {
+    public $name = "yellow-bellied flycatcher";
+    public $diet = "mostly insects.";
+    public $song = "flat chilk";
+    public static $egg_num = "3-4, sometimes 5.";
+  }
+
+  class Kiwi extends Bird {
+    public $name = "kiwi";
+    public $diet = "omnivorous";
+    public $flying = "no";
+  }
