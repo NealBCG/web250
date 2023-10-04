@@ -13,7 +13,7 @@
     protected static $wheels = 2;
     public static $instance_count = 0;
     public const GENDER = ['male', 'female', 'unisex'];
-    public const CATEGORIES = ['road', 'mountain', 'all-terrain', 'cruiser', 'city', 'bmx'];
+    public const CATEGORIES = ['road', 'mountain', 'hybrid', 'cruiser', 'city', 'bmx'];
     // The public constant CONDITION is used to store an array numbers and their corresponding strings. The purpose is to have a stable and consistent set of values to refer to.
     public const CONDITION = [1=>'Beat up', 2=>'Decent', 3=>'Good', 4=>'Great', 5=>'Like new'];
 

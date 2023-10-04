@@ -26,7 +26,7 @@
         <th>Price</th>
       </tr>
 
-      <?php $parse = new ParseCSV(PRIVATE_PATH . '/used_bicycles.csv');
+      <?php $parser = new ParseCSV(PRIVATE_PATH . '/used_bicycles.csv');
       $bike_array = $parser->parse();
             
       foreach($bike_array as $args) { 

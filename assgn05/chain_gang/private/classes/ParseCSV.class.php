@@ -8,7 +8,7 @@
     //The delimiter attribute defines the marker used to separate data in a row of the file. The purpose is to have an object that can easily be changed, rather than a hard coded marker in a function.
     public static $delimiter = ',';
 
-    public function __construct($fileName='') {
+    public function __construct($fileName = '') {
       if($fileName != '')
         $this->file($fileName);
     }
@@ -43,11 +43,11 @@
         $row = fgetcsv($file, 0, self::$delimiter);
         if($row == [NULL] || $row === FALSE) { continue; }
         if(!$this->header)
-          $header = $row;
+          $this->header = $row;
         else 
-          $data[] = array_combine($this->header, $row);
+          $this->data[] = array_combine($this->header, $row);
+          $this->rowCount++;
         }
-        $this->rowCount++;
         fclose($file);
       return $this->data;
     }
