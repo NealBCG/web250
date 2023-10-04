@@ -26,17 +26,24 @@
         <th>Price</th>
       </tr>
 
+      <?php $parse = new Parsecsv(PRIVATE_PATH . '/used_bicycles.csv');
+      $bike_array = $parser->parse();
+      
+      print_r($bike_array);
+      
+      for($i=0; $i <= 0; $i++) { ?>
       <tr>
-        <td>Brand</td>
-        <td>Model</td>
-        <td>Year</td>
-        <td>Category</td>
-        <td>Gender</td>
-        <td>Color</td>
-        <td>Weight</td>
-        <td>Condition</td>
-        <td>Price</td>
+        <td><?php echo h($bike->brand) ?></td>
+        <td><?php echo h($bike->model) ?></td>
+        <td><?php echo h($bike->year) ?></td>
+        <td><?php echo h($bike->category) ?></td>
+        <td><?php echo h($bike->gender) ?></td>
+        <td><?php echo h($bike->color) ?></td>
+        <td><?php echo h($bike->weight_kg()) . '/' . h($bike->weight_lbs()) ?></td>
+        <td><?php echo h($bike->condition) ?></td>
+        <td><?php echo '$' . h($bike->price) ?></td>
       </tr>
+      <?php } ?>
 
     </table>
   </div>
