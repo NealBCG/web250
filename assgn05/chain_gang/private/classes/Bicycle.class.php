@@ -14,6 +14,7 @@
     public static $instance_count = 0;
     public const GENDER = ['male', 'female', 'unisex'];
     public const CATEGORIES = ['road', 'mountain', 'all-terrain', 'cruiser', 'city', 'bmx'];
+    // The public constant CONDITION is used to store an array numbers and their corresponding strings. The purpose is to have a stable and consistent set of values to refer to.
     public const CONDITION = [1=>'Beat up', 2=>'Decent', 3=>'Good', 4=>'Great', 5=>'Like new'];
 
     public function __construct($args=[]) {
@@ -53,6 +54,7 @@
         return 'It has 1 wheel.';
     }
 
+    // The condition function looks through the CONDITION array and pulls out the string that corresponds to the number assigned to condition_id. We could also forgo the array and use a series of ifelse statements for each value, but it is more efficient to use an array with a single if statement. 
     public function condition() {
       if($this->condition_id > 0)
         return self::CONDITION[$this->condition_id];
