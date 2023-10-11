@@ -40,25 +40,25 @@
     protected $wheels = 1;
   }
 
-  $bicycle1 = new Bicycle;
-  $bicycle1->brand = "Brand X";
-  $bicycle1->model = "All-Terrain";
-  $bicycle1->year = "2005";
-  $bicycle1->description = "Well used.";
-  $bicycle1->set_weight_kg(3.5);
+  $bicycle = new Bicycle;
+  $bicycle->brand = "Brand X";
+  $bicycle->model = "All-Terrain";
+  $bicycle->year = "2005";
+  $bicycle->description = "Well used.";
+  $bicycle->set_weight_kg(3.5);
   
-  $bicycle2 = new Unicycle;
-  $bicycle2->brand = "Brand Y";
-  $bicycle2->model = "Electric";
-  $bicycle2->year = "2022";
-  $bicycle2->description = "Lightly used.";
-  $bicycle2->set_weight_lbs(9);
+  $unicycle = new Unicycle;
+  $unicycle->brand = "Brand Y";
+  $unicycle->model = "Electric";
+  $unicycle->year = "2022";
+  $unicycle->description = "Lightly used.";
+  $unicycle->set_weight_lbs(9);
 
-  echo $bicycle1->name();
-  echo $bicycle2->name();
+  echo $bicycle->name();
+  echo $unicycle->name();
   
-  echo '<p>Bicycle1 weighs ' . $bicycle1->weight_kg() . ', which is ' . $bicycle1->weight_lbs() . '. ' . $bicycle1->wheel_details() . '</p>';
+  echo '<p>Bicycle weighs ' . $bicycle->weight_kg() . ', which is ' . $bicycle->weight_lbs() . '. ' . $bicycle->wheel_details() . '</p>';
 
-  echo '<p>Bicycle2 weighs ' . $bicycle2->weight_kg() . ', which is ' . $bicycle2->weight_lbs() . '. ' . $bicycle2->wheel_details() . '</p>';
+  echo '<p>Unicycle weighs ' . $unicycle->weight_kg() . ', which is ' . $unicycle->weight_lbs() . '. ' . $unicycle->wheel_details() . '</p>';
 
 ?>

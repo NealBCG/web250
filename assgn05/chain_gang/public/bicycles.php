@@ -43,10 +43,7 @@
         <td><?php echo '$' . h($bike->price) ?></td>
       </tr>
       <?php } ?>
-
     </table>
   </div>
-
 </div>
-
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

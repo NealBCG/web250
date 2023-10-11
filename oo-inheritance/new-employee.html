@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--	Author: Mike O'Kane
+		Date:	December, 2016
+		File:	new-employee.html
+		Purpose: OOP Example
+-->
+
+<html>
+<head>
+	<title>OOP Example</title>
+	<link rel ="stylesheet" type="text/css" href="sample.css" />
+</head>
+<body>
+	<h1>Add New Employee Form</h1>
+	<form action="new-employee.php" method="post">
+
+		<label>ID:<input type="text" size = "15" name="id"></label>
+		<label>First Name:<input type="text" size = "15" name="firstName"></label>
+		<label>Last Name:<input type="text" size = "15" name="lastName"></label>
+		<label>Job Title:<input type="text" size = "15" name="jobTitle"></label>
+		<label>Salary or Hourly Wage:<input type="text" size = "10" name="income"></label>
+		<label>Employee Type
+            <select name = "empType">
+				<option>Salaried</option>
+				<option>Hourly</option>
+			</select></label>
+		<input class = "submit" type = "submit" value = "Add Employee">
+	</form>
+</body>
+</html>
