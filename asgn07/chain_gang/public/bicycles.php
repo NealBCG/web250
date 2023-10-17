@@ -44,6 +44,16 @@
       </tr>
       <?php } ?>
     </table>
+
+    <?php 
+      $sql = 'SELECT * FROM bicycles';
+      $result = $database->query($sql);
+      $row = $result->fetch_assoc();
+      $result->free();
+      echo $row;
+
+    ?>
+
   </div>
 </div>
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

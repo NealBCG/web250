@@ -23,11 +23,14 @@
   define("WWW_ROOT", $doc_root);
 
   require_once('functions.php');
-
+  require_once('db_credentials.php');
+  require_once('database_functions.php');
   // Autoload class definitions
   function my_autoload($class) {
     if(preg_match('/\A\w+\Z/', $class)) 
       include 'classes/' . $class . '.class.php';
   }
   spl_autoload_register('my_autoload');
+
+  $database = db_connect();
 ?>
