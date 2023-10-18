@@ -24,13 +24,12 @@
         <th>Weight</th>
         <th>Condition</th>
         <th>Price</th>
+        <th>&nbsp;</th>
       </tr>
 
-      <?php $parser = new ParseCSV(PRIVATE_PATH . '/used_bicycles.csv');
-      $bike_array = $parser->parse();
+      $bike = Bicycle::find_all();
             
-      foreach($bike_array as $args) { 
-        $bike = new Bicycle($args); ?>
+      foreach($bikes as $bike) { 
       <tr>
         <td><?php echo h($bike->brand) ?></td>
         <td><?php echo h($bike->model) ?></td>
@@ -41,19 +40,10 @@
         <td><?php echo h($bike->weight_kg()) . '/' . h($bike->weight_lbs()) ?></td>
         <td><?php echo h($bike->condition()) ?></td>
         <td><?php echo '$' . h($bike->price) ?></td>
+        <td><a href="detail.php?id=<?php echo $bike->id ?>">view</a></td>
       </tr>
       <?php } ?>
     </table>
-
-    <?php 
-      $sql = 'SELECT * FROM bicycles';
-      $result = $database->query($sql);
-      $row = $result->fetch_assoc();
-      $result->free();
-      echo $row;
-
-    ?>
-
   </div>
 </div>
 <?php include(SHARED_PATH . '/public_footer.php'); ?>
