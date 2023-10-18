@@ -6,11 +6,12 @@
   }
 
   function confirm_db_connect($connection) {
-    if($connection->connect_errno)
-    $msg = "Database connection failed ";
-    $msg .= $connection->connect_error;
-    $msg .= " (" . $connection->connect_errno . ")";
-    exit($msg);
+    if($connection->connect_errno) {
+      $msg = "Database connection failed " . 
+      $msg .= $connection->connect_error;
+      $msg .= " (" . $connection->connect_errno . ")";
+      exit($msg);
+    }
   }
 
   function db_disconnect() {

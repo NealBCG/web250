@@ -55,7 +55,7 @@
       </dl>
       <dl>
         <dt>Price</dt>
-        <dd><?php echo h(money_format('$%i', $bike->price)); ?></dd>
+        <dd><?php echo '$' . h($bike->price); ?></dd>
       </dl>
       <dl>
         <dt>Description</dt>

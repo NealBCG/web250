@@ -26,10 +26,9 @@
         <th>Price</th>
         <th>&nbsp;</th>
       </tr>
-
-      $bike = Bicycle::find_all();
-            
-      foreach($bikes as $bike) { 
+      <?php
+        $bike = Bicycle::find_all();    
+        foreach($bike as $bike) { ?>
       <tr>
         <td><?php echo h($bike->brand) ?></td>
         <td><?php echo h($bike->model) ?></td>

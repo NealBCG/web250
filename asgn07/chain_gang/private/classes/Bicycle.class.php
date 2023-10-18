@@ -24,7 +24,7 @@
       return self::find_by_sql($sql);
     }
 
-    static public function find_by_id() {
+    static public function find_by_id($id) {
       $sql = "SELECT * FROM bicycles ";
       $sql .= "WHERE id='" . self::$database->escape_string($id) . "'";
       $obj_array =  self::find_by_sql($sql);
@@ -58,7 +58,6 @@
     public static $instance_count = 0;
     public const GENDER = ['male', 'female', 'unisex'];
     public const CATEGORIES = ['road', 'mountain', 'hybrid', 'cruiser', 'city', 'bmx'];
-    // The public constant CONDITION is used to store an array numbers and their corresponding strings. The purpose is to have a stable and consistent set of values to refer to.
     public const CONDITION = [1=>'Beat up', 2=>'Decent', 3=>'Good', 4=>'Great', 5=>'Like new'];
 
     public function __construct($args=[]) {
