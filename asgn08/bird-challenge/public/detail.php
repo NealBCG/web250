@@ -1,66 +1,46 @@
-<?php require_once('../private/initialize.php'); ?>
-
-<?php
-
+<?php require_once('../private/initialize.php');
   $id =$_GET['id'] ?? false;
-
   if(!$id)
     redirect_to('birds.php');
-
-    $bird = Bird::find_by_id($id);
-
+  $bird = Bird::find_by_id($id);
 ?>
 
 <?php $page_title = 'Detail: ' . $bird->name(); ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="main">
-
   <a href="birds.php">Back to Birds</a>
-
   <div id="page">
-
     <div class="detail">
       <dl>
-        <dt>Brand</dt>
-        <dd><?php echo h($bird->brand); ?></dd>
+        <dt>Common Name</dt>
+        <dd><?php echo h($bird->common_name); ?></dd>
       </dl>
       <dl>
-        <dt>Model</dt>
-        <dd><?php echo h($bird->model); ?></dd>
+        <dt>Habitat</dt>
+        <dd><?php echo h($bird->habitat); ?></dd>
       </dl>
       <dl>
-        <dt>Year</dt>
-        <dd><?php echo h($bird->year); ?></dd>
+        <dt>Food</dt>
+        <dd><?php echo h($bird->food); ?></dd>
       </dl>
       <dl>
-        <dt>Category</dt>
-        <dd><?php echo h($bird->category); ?></dd>
+        <dt>Nest Placement</dt>
+        <dd><?php echo h($bird->nest_placement); ?></dd>
       </dl>
       <dl>
-        <dt>Gender</dt>
-        <dd><?php echo h($bird->gender); ?></dd>
+        <dt>Behavior</dt>
+        <dd><?php echo h($bird->behavior); ?></dd>
       </dl>
       <dl>
-        <dt>Color</dt>
-        <dd><?php echo h($bird->color); ?></dd>
+        <dt>Conservation ID</dt>
+        <dd><?php echo h($bird->conservation()); ?></dd>
       </dl>
       <dl>
-        <dt>Condition</dt>
-        <dd><?php echo h($bird->condition()); ?></dd>
-      </dl>
-      <dl>
-        <dt>Price</dt>
-        <dd><?php echo '$' . h($bird->price); ?></dd>
-      </dl>
-      <dl>
-        <dt>Description</dt>
-        <dd><?php echo h($bird->description); ?></dd>
+        <dt>Backyard Tips</dt>
+        <dd><?php echo h($bird->backyard_tips); ?></dd>
       </dl>
     </div>
-
   </div>
-
 </div>
-
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

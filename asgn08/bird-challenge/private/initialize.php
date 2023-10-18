@@ -14,6 +14,8 @@
  
 
   require_once('functions.php');
+  require_once('db_credentials.php');
+  require_once('database_functions.php');
   
   /*
     You can list the required classes manually or use the autoload class.
@@ -28,5 +30,7 @@
     }
   }
   spl_autoload_register('my_autoload');
+  $database = db_connect();
+  Bird::set_database($database);
 
 ?>
