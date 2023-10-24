@@ -7,8 +7,8 @@ define("DB_NAME", "sabirds");
 
 
 //define("DB_SERVER", "localhost");
-//define("DB_USER", "");
-//define("DB_PASS", "");
-//define("DB_NAME", "");
+//define("DB_USER", "ueqq5oawfuwod");
+//define("DB_PASS", "HRBJbXK9EScW88Y");
+//define("DB_NAME", "dbtkkfgixykqg0");
 
 ?>
