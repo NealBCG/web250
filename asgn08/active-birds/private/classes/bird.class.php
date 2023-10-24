@@ -69,10 +69,6 @@
       $this->backyard_tips = $args['backyard_tips'] ?? NULL;
     }
 
-    public function name() {
-      return $this->common_name;
-    }
-
     public function conservation() {
       if($this->conservation_id > 0 && $this->conservation_id < 5)
         return self::CONSERVATION_OPTIONS[$this->conservation_id];
