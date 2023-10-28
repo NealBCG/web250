@@ -1,6 +1,8 @@
 <?php
   class Bicycle {
     static protected $database;
+    static protected $db_columns = ['id', 'brand', 'model', 'year', 'category', 'color', 'description', 'gender', 
+      'price', 'condition_id', 'weight_kg', 'description'];
 
     static public function set_database($database) {
       self::$database = $database;
@@ -43,6 +45,35 @@
       return $object;
     }
 
+    public function create() {
+      $attributes = $this->sanitize_attributes();
+      $sql = "INSERT INTO Bicycles ";
+      $sql .= join(', ', array_keys($attributes));
+      $sql .= "VALUES ('" . join("', '", array_values($attributes)) . "')";
+      $result = self::$database->query($sql);
+
+      if($result)
+        $this->id = self::$database->insert_id;
+      return $result;
+    }
+
+    public function attributes() {
+      $attributes = [];
+      foreach(self::$db_columns as $column){
+        if($column == 'id')
+          continue;
+        $attributes[$column] = $this->$column;
+      }
+      return $attributes;
+    }
+
+    protected function sanitize_attributes() {
+      $santized = [];
+      foreach($this->attributes() as $key => $value)
+        $sanitized[$key] = self::$database->escape_string($value);
+      return $sanitized;
+    }
+
     public $id;
     public $brand;
     public $model;
@@ -55,7 +86,6 @@
     public $condition_id;
     private $weight_kg = 0;
     protected static $wheels = 2;
-    public static $instance_count = 0;
     public const GENDER = ['male', 'female', 'unisex'];
     public const CATEGORIES = ['road', 'mountain', 'hybrid', 'cruiser', 'city', 'bmx'];
     public const CONDITION = [1=>'Beat up', 2=>'Decent', 3=>'Good', 4=>'Great', 5=>'Like new'];
@@ -100,18 +130,11 @@
         return 'It has 1 wheel.';
     }
 
-    // The condition function looks through the CONDITION array and pulls out the string that corresponds to the number assigned to condition_id. We could also forgo the array and use a series of ifelse statements for each value, but it is more efficient to use an array with a single if statement. 
     public function condition() {
       if($this->condition_id > 0)
         return self::CONDITION[$this->condition_id];
       else
         return 'Error!';
-    }
-
-    public static function create() {
-      self::$instance_count++;
-      $newClass = get_called_class();
-      return new $newClass;
     }
   }
 ?>
