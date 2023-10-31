@@ -1,78 +1,8 @@
 <?php
-  class Bicycle {
-    static protected $database;
+  class Bicycle extends DatabaseObject {
+    static protected $table_name = 'bicycles';
     static protected $db_columns = ['id', 'brand', 'model', 'year', 'category', 'color', 'description', 'gender', 
       'price', 'condition_id', 'weight_kg', 'description'];
-
-    static public function set_database($database) {
-      self::$database = $database;
-    }
-
-    static public function find_by_sql($sql) {
-      $result = self::$database->query($sql);
-      if(!$result)
-        exit("Database query failed");
-
-        $object_array = [];
-      while($record = $result->fetch_assoc()) {
-        $object_array[] = self::instantiate($record);
-      }
-      $result->free();
-      return $object_array;
-    }
-
-    static public function find_all() { 
-      $sql = 'SELECT * FROM bicycles';
-      return self::find_by_sql($sql);
-    }
-
-    static public function find_by_id($id) {
-      $sql = "SELECT * FROM bicycles ";
-      $sql .= "WHERE id='" . self::$database->escape_string($id) . "'";
-      $obj_array =  self::find_by_sql($sql);
-      if(!empty($obj_array))
-        return array_shift($obj_array);
-      else
-        return false;
-    }
-
-    static protected function instantiate($record) {
-      $object = new self;
-      foreach($record as $property => $value) {
-        if(property_exists($object, $property))
-          $object->$property = $value;
-      }
-      return $object;
-    }
-
-    public function create() {
-      $attributes = $this->sanitize_attributes();
-      $sql = "INSERT INTO Bicycles ";
-      $sql .= join(', ', array_keys($attributes));
-      $sql .= "VALUES ('" . join("', '", array_values($attributes)) . "')";
-      $result = self::$database->query($sql);
-
-      if($result)
-        $this->id = self::$database->insert_id;
-      return $result;
-    }
-
-    public function attributes() {
-      $attributes = [];
-      foreach(self::$db_columns as $column){
-        if($column == 'id')
-          continue;
-        $attributes[$column] = $this->$column;
-      }
-      return $attributes;
-    }
-
-    protected function sanitize_attributes() {
-      $santized = [];
-      foreach($this->attributes() as $key => $value)
-        $sanitized[$key] = self::$database->escape_string($value);
-      return $sanitized;
-    }
 
     public $id;
     public $brand;
@@ -84,7 +14,7 @@
     public $gender;
     public $price;
     public $condition_id;
-    private $weight_kg = 0;
+    public $weight_kg = 0;
     protected static $wheels = 2;
     public const GENDER = ['male', 'female', 'unisex'];
     public const CATEGORIES = ['road', 'mountain', 'hybrid', 'cruiser', 'city', 'bmx'];
@@ -135,6 +65,16 @@
         return self::CONDITION[$this->condition_id];
       else
         return 'Error!';
+    }
+
+    protected function validate() {
+      $this->errors = [];
+      if(is_blank($this->brand))
+        $this->errors[] = "Brand cannot be blank.";
+      if(is_blank($this->model))
+        $this->errors[] = "Model cannot be blank.";
+      
+      return $this->errors;
     }
   }
 ?>

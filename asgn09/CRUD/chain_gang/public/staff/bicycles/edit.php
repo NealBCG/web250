@@ -6,25 +6,15 @@ if(!isset($_GET['id'])) {
   redirect_to(url_for('/staff/bicycles/index.php'));
 }
 $id = $_GET['id'];
+$bicycle = Bicycle::find_by_id($id);
+if($bicycle == false)
+  redirect_to(url_for('/staff/bicycles/index.php'))
 
 if(is_post_request()) {
+  $args = $_POST['bicycle'];
+  $bicycle->merge_attributes($args);
+  $result = $bicycle->save();
 
-  // Save record using post parameters
-  $args = [];
-  $args['brand'] = $_POST['brand'] ?? NULL;
-  $args['model'] = $_POST['model'] ?? NULL;
-  $args['year'] = $_POST['year'] ?? NULL;
-  $args['category'] = $_POST['category'] ?? NULL;
-  $args['color'] = $_POST['color'] ?? NULL;
-  $args['gender'] = $_POST['gender'] ?? NULL;
-  $args['price'] = $_POST['price'] ?? NULL;
-  $args['weight_kg'] = $_POST['weight_kg'] ?? NULL;
-  $args['condition_id'] = $_POST['condition_id'] ?? NULL;
-  $args['description'] = $_POST['description'] ?? NULL;
-
-  $bicycle = [];
-
-  $result = false;
   if($result === true) {
     $_SESSION['message'] = 'The bicycle was updated successfully.';
     redirect_to(url_for('/staff/bicycles/show.php?id=' . $id));
@@ -35,7 +25,7 @@ if(is_post_request()) {
 } else {
 
   // display the form
-  $bicycle = [];
+
 }
 
 ?>
@@ -50,7 +40,7 @@ if(is_post_request()) {
   <div class="bicycle edit">
     <h1>Edit Bicycle</h1>
 
-    <?php // echo display_errors($errors); ?>
+    <?php echo display_errors($bicycle->errors); ?>
 
     <form action="<?php echo url_for('/staff/bicycles/edit.php?id=' . h(u($id))); ?>" method="post">
 
