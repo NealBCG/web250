@@ -17,6 +17,7 @@ function raw_u($string="") {
 }
 
 function h($string="") {
+  if(!is_null($string))
   return htmlspecialchars($string);
 }
 

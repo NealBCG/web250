@@ -48,9 +48,7 @@ $bicycles = Bicycle::find_all();
     	  </tr>
       <?php } ?>
   	</table>
-
   </div>
-
 </div>
 
 <?php include(SHARED_PATH . '/staff_footer.php'); ?>

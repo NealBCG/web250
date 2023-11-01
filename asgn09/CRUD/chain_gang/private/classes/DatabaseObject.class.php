@@ -109,7 +109,7 @@
     }
 
     protected function sanitize_attributes() {
-      $santized = [];
+      $sanitized = [];
       foreach($this->attributes() as $key => $value)
         $sanitized[$key] = self::$database->escape_string($value);
       return $sanitized;

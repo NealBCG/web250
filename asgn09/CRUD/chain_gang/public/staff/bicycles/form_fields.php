@@ -8,12 +8,12 @@ if(!isset($bicycle)) {
 
 <dl>
   <dt>Brand</dt>
-  <dd><input type="text" name="Bicycle[brand]" value="<?php echo h($bicycle->brand); ?>" /></dd>
+  <dd><input type="text" name="Bicycle[brand]" value="<?php echo h($bicycle->brand); ?>"></dd>
 </dl>
 
 <dl>
   <dt>Model</dt>
-  <dd><input type="text" name="Bicycle[model]" value="<?php echo h($bicycle->model); ?>" /></dd>
+  <dd><input type="text" name="Bicycle[model]" value="<?php echo h($bicycle->model); ?>"></dd>
 </dl>
 
 <dl>
@@ -22,7 +22,7 @@ if(!isset($bicycle)) {
     <select name="Bicycle[year]">
       <option value=""></option>
     <?php $this_year = idate('Y') ?>
-    <?php for($year=$this_year-20; $year <= $this_year; $year++) { ?>
+    <?php for($year=$this_year-25; $year <= $this_year; $year++) { ?>
       <option value="<?php echo $year; ?>" <?php if($bicycle->year == $year) 
       { echo'selected'; } ?>><?php echo $year; ?></option>
     <?php } ?>
@@ -48,7 +48,7 @@ if(!isset($bicycle)) {
   <dd>
     <select name="Bicycle[gender]">
       <option value=""></option>
-    <?php foreach(Bicycle::GENDERS as $gender) { ?>
+    <?php foreach(Bicycle::GENDER as $gender) { ?>
       <option value="<?php echo $gender; ?>" <?php if($bicycle->gender == $gender) 
       { echo'selected'; } ?>><?php echo $gender; ?></option>
     <?php } ?>
@@ -58,7 +58,7 @@ if(!isset($bicycle)) {
 
 <dl>
   <dt>Color</dt>
-  <dd><input type="text" name="Bicycle[color]" value="<?php echo h($bicycle->color); ?>" /></dd>
+  <dd><input type="text" name="Bicycle[color]" value="<?php echo h($bicycle->color); ?>"></dd>
 </dl>
 
 <dl>
@@ -66,7 +66,7 @@ if(!isset($bicycle)) {
   <dd>
     <select name="Bicycle[condition_id]">
       <option value=""></option>
-    <?php foreach(Bicycle::CONDITION_OPTIONS as $cond_id => $cond_name) { ?>
+    <?php foreach(Bicycle::CONDITION as $cond_id => $cond_name) { ?>
       <option value="<?php echo $cond_id; ?>" <?php if($bicycle->condition_id == $cond_id) 
       { echo'selected'; } ?>><?php echo $cond_name; ?></option>
     <?php } ?>
@@ -76,12 +76,12 @@ if(!isset($bicycle)) {
 
 <dl>
   <dt>Weight (kg)</dt>
-  <dd><input type="text" name="Bicycle[weight_kg]" value="<?php echo h($bicycle->weight_kg); ?>" /></dd>
+  <dd><input type="text" name="Bicycle[weight_kg]" value="<?php echo h($bicycle->weight_kg); ?>"></dd>
 </dl>
 
 <dl>
   <dt>Price</dt>
-  <dd>$ <input type="text" name="Bicycle[price]" size="18" value="<?php echo h($bicycle->price); ?>" /></dd>
+  <dd>$ <input type="text" name="Bicycle[price]" size="18" value="<?php echo h($bicycle->price); ?>"></dd>
 </dl>
 
 <dl>

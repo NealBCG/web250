@@ -22,12 +22,12 @@
 
     public function __construct($args=[]) {
       $this->brand = $args['brand'] ?? NULL;
-      $this->model = $args['model'] ?? NULL;
-      $this->year = $args['year'] ?? NULL;
-      $this->category = $args['category'] ?? NULL;
-      $this->color = $args['color'] ?? NULL;
-      $this->description = $args['description'] ?? NULL;
-      $this->gender = $args['gender'] ?? NULL;
+      $this->model = $args['model']?? NULL;
+      $this->year = $args['year']?? NULL;
+      $this->category = $args['category']?? NULL;
+      $this->color = $args['color']?? NULL;
+      $this->description = $args['description']?? NULL;
+      $this->gender = $args['gender']?? NULL;
       $this->price = $args['price'] ?? 0;
       $this->condition_id = $args['condition_id'] ?? 1;
       $this->weight_kg = $args['weight_kg'] ?? 0;
@@ -73,7 +73,6 @@
         $this->errors[] = "Brand cannot be blank.";
       if(is_blank($this->model))
         $this->errors[] = "Model cannot be blank.";
-      
       return $this->errors;
     }
   }
