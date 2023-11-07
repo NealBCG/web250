@@ -17,7 +17,8 @@ function raw_u($string="") {
 }
 
 function h($string="") {
-  return htmlspecialchars($string);
+  if(!is_null($string))
+    return htmlspecialchars($string);
 }
 
 function error_404() {

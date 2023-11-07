@@ -97,7 +97,6 @@
       }
     }
 
-
     public function attributes() {
       $attributes = [];
       foreach(static::$db_columns as $column){
