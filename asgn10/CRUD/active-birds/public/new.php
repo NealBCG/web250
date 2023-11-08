@@ -9,7 +9,7 @@
     if($result === true) {
       $new_id = $bird->id;
       $_SESSION['message'] = 'The bird was created successfully.';
-      redirect_to(url_for('/staff/birds/show.php?id=' . $new_id));
+      redirect_to(url_for('/detail.php?id=' . $new_id));
     }
   } 
   else

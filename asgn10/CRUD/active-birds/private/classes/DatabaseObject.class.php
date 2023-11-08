@@ -57,9 +57,9 @@
       if(!empty($this->errors)) 
         return false;
       $attributes = $this->sanitize_attributes();
-      $sql = "INSERT INTO " . static::$table_name . " ";
+      $sql = "INSERT INTO " . static::$table_name . " (";
       $sql .= join(', ', array_keys($attributes));
-      $sql .= "VALUES ('" . join("', '", array_values($attributes)) . "')";
+      $sql .= ") VALUES ('" . join("', '", array_values($attributes)) . "')";
       $result = self::$database->query($sql);
 
       if($result)
