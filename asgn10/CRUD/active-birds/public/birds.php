@@ -1,4 +1,4 @@
-<?php 
+<?php header("Cache-Control: no-cache"); 
   require_once('../private/initialize.php');
   $page_title = 'Sightings';
   include(SHARED_PATH . '/public_header.php');
