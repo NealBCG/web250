@@ -1,13 +1,9 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once('../../../private/initialize.php'); 
+require_login();
 
-<?php
-  
-// Find all admins
 $admins = Admin::find_all();
-  
-?>
-<?php $page_title = 'Admins'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+$page_title = 'Admins'; 
+include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
   <div class="admins listing">

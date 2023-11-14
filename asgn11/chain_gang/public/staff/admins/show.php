@@ -1,15 +1,11 @@
-<?php require_once('../../../private/initialize.php'); ?>
-
-<?php
+<?php require_once('../../../private/initialize.php'); 
+require_login();
 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 
 $admin = Admin::find_by_id($id);
-
-?>
-
-<?php $page_title = 'Show Admin: ' . h($admin->full_name()); ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+$page_title = 'Show Admin: ' . h($admin->full_name());
+include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
 

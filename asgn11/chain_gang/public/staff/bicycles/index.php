@@ -1,13 +1,9 @@
-<?php require_once('../../../private/initialize.php'); ?>
+<?php require_once('../../../private/initialize.php'); 
+require_login();
 
-<?php
-  
-// Find all bicycles;
 $bicycles = Bicycle::find_all();
-  
-?>
-<?php $page_title = 'Bicycles'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+$page_title = 'Bicycles'; 
+include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
   <div class="bicycles listing">

@@ -21,9 +21,9 @@ if(is_post_request()) {
   // if there were no errors, try to login
   if(empty($errors)) {
     $admin = Admin::find_by_username($username);
-    // test if admin found and password is correct
-    if($admin) {
-      // Mark admin as logged in
+    
+    if($admin != false && $admin->verify_password($password)) {
+      $session->login($admin);
       redirect_to(url_for('/staff/index.php'));
     } else {
       // username not found or password does not match
