@@ -9,7 +9,7 @@
     public $food;
     public $conservation_id;
     public $backyard_tips;
-    public const CONSERVATION = [1=> 'Low concern', 2=> 'Moderate concern', 3=> 'Extreme concern', 4=> 'Extinct'];
+    public const CONSERVATION = [1=>'Low concern', 2=>'Moderate concern', 3=>'Extreme concern', 4=>'Extinct'];
 
     public function __construct($args=[]) {
       $this->common_name = $args['common_name'] ?? 'American Black Bear';

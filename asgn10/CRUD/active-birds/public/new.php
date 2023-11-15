@@ -13,7 +13,7 @@
     }
   } 
   else
-    $bird = new bird;
+    $bird = new Bird;
 ?>
 
 <?php $page_title = 'Create bird'; ?>

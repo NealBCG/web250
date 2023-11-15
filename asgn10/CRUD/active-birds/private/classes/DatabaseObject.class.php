@@ -76,7 +76,7 @@
         $attribute_pairs[] = "{$key} ='{$value}'";
       }
       $sql = "UPDATE " . static::$table_name . " SET ";
-      $sql .= join(', ', $attribute_pairs);;
+      $sql .= join(', ', $attribute_pairs);
       $sql .= "WHERE id='" . self::$database->escape_string($this->id) . "' ";
       $sql .= "LIMIT 1";
       $result = self::$database->query($sql);
