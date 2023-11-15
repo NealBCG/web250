@@ -6,6 +6,7 @@
 
   <ul id="menu">
     <li><a href="<?php echo url_for('/staff/bicycles/index.php'); ?>">View Our Inventory</a></li>
+    <li><a href="<?php echo url_for('/staff/login.php'); ?>">For Staff</a></li>
     <li><a href="<?php echo url_for('/about.php'); ?>">About Us</a></li>
   </ul>
     

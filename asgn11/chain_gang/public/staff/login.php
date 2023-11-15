@@ -45,11 +45,11 @@ if(is_post_request()) {
   <?php echo display_errors($errors); ?>
 
   <form action="login.php" method="post">
-    Username:<br />
-    <input type="text" name="username" value="<?php echo h($username); ?>" /><br />
-    Password:<br />
-    <input type="password" name="password" value="" /><br />
-    <input type="submit" name="submit" value="Submit"  />
+    Username:<br>
+    <input type="text" name="username" value="<?php echo h($username); ?>"><br>
+    Password:<br>
+    <input type="password" name="password" value=""><br>
+    <input type="submit" name="submit" value="Submit">
   </form>
 
 </div>

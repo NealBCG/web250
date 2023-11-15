@@ -57,9 +57,9 @@
       if(!empty($this->errors)) 
         return false;
       $attributes = $this->sanitize_attributes();
-      $sql = "INSERT INTO " . static::$table_name . " ";
+      $sql = "INSERT INTO " . static::$table_name . " (";
       $sql .= join(', ', array_keys($attributes));
-      $sql .= "VALUES ('" . join("', '", array_values($attributes)) . "')";
+      $sql .= ") VALUES ('" . join("', '", array_values($attributes)) . "')";
       $result = self::$database->query($sql);
 
       if($result)
@@ -76,7 +76,7 @@
         $attribute_pairs[] = "{$key} ='{$value}'";
       }
       $sql = "UPDATE " . static::$table_name . " SET ";
-      $sql .= join(', ', $attribute_pairs);;
+      $sql .= join(', ', $attribute_pairs);
       $sql .= "WHERE id='" . self::$database->escape_string($this->id) . "' ";
       $sql .= "LIMIT 1";
       $result = self::$database->query($sql);
