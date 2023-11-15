@@ -21,13 +21,13 @@
     public const CONDITION = [1=>'Beat up', 2=>'Decent', 3=>'Good', 4=>'Great', 5=>'Like new'];
 
     public function __construct($args=[]) {
-      $this->brand = $args['brand'] ?? NULL;
-      $this->model = $args['model']?? NULL;
-      $this->year = $args['year']?? NULL;
-      $this->category = $args['category']?? NULL;
-      $this->color = $args['color']?? NULL;
-      $this->description = $args['description']?? NULL;
-      $this->gender = $args['gender']?? NULL;
+      $this->brand = $args['brand'] ?? '';
+      $this->model = $args['model']?? '';
+      $this->year = $args['year']?? '';
+      $this->category = $args['category']?? '';
+      $this->color = $args['color']?? '';
+      $this->description = $args['description']?? '';
+      $this->gender = $args['gender']?? '';
       $this->price = $args['price'] ?? 0;
       $this->condition_id = $args['condition_id'] ?? 1;
       $this->weight_kg = $args['weight_kg'] ?? 0;

@@ -1,12 +1,16 @@
-<?php require_once('../../../private/initialize.php'); 
-require_login();
+<?php require_once('../../../private/initialize.php'); ?>
+<?php require_login(); ?>
+
+<?php
 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 
 $bicycle = Bicycle::find_by_id($id);
 
-$page_title = 'Show Bicycle: ' . h($bicycle->name());
-include(SHARED_PATH . '/staff_header.php'); ?>
+?>
+
+<?php $page_title = 'Show Bicycle: ' . h($bicycle->name()); ?>
+<?php include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
 

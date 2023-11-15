@@ -70,10 +70,11 @@
     protected function update() {
       $this->validate();
       if(!empty($this->errors)) {return false;}
+
       $attributes = $this->sanitize_attributes();
       $attribute_pairs = [];
       foreach($attributes as $key => $value) {
-        $attribute_pairs[] = "{$key} ='{$value}'";
+        $attribute_pairs[] = "{$key}='{$value}'";
       }
       $sql = "UPDATE " . static::$table_name . " SET ";
       $sql .= join(', ', $attribute_pairs);

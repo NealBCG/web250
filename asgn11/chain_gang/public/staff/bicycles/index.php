@@ -1,8 +1,10 @@
-<?php require_once('../../../private/initialize.php'); 
-require_login();
+<?php require_once('../../../private/initialize.php');
+require_login(); 
 
+// Find all bicycles;
 $bicycles = Bicycle::find_all();
-$page_title = 'Bicycles'; 
+
+$page_title = 'Bicycles';
 include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
@@ -44,7 +46,9 @@ include(SHARED_PATH . '/staff_header.php'); ?>
     	  </tr>
       <?php } ?>
   	</table>
+
   </div>
+
 </div>
 
 <?php include(SHARED_PATH . '/staff_footer.php'); ?>

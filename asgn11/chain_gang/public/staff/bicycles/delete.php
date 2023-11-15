@@ -1,4 +1,7 @@
-<?php require_once('../../../private/initialize.php');
+<?php
+
+require_once('../../../private/initialize.php');
+
 require_login();
 
 if(!isset($_GET['id'])) {
@@ -6,8 +9,9 @@ if(!isset($_GET['id'])) {
 }
 $id = $_GET['id'];
 $bicycle = Bicycle::find_by_id($id);
-if($bicycle == false)
+if($bicycle == false) {
   redirect_to(url_for('/staff/bicycles/index.php'));
+}
 
 if(is_post_request()) {
 
@@ -22,8 +26,8 @@ if(is_post_request()) {
 
 ?>
 
-<?php $page_title = 'Delete Bicycle'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php $page_title = 'Delete Bicycle';
+include(SHARED_PATH . '/staff_header.php'); ?>
 
 <div id="content">
 
@@ -36,7 +40,7 @@ if(is_post_request()) {
 
     <form action="<?php echo url_for('/staff/bicycles/delete.php?id=' . h(u($id))); ?>" method="post">
       <div id="operations">
-        <input type="submit" name="commit" value="Delete Bicycle" />
+        <input type="submit" name="commit" value="Delete Bicycle">
       </div>
     </form>
   </div>

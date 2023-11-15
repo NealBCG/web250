@@ -25,6 +25,7 @@
   require_once('db_credentials.php');
   require_once('database_functions.php');
   require_once('validation_functions.php');
+  
   // Autoload class definitions
   function my_autoload($class) {
     if(preg_match('/\A\w+\Z/', $class)) 
