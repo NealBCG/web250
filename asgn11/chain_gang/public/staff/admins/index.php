@@ -1,4 +1,5 @@
-<?php require_once('../../../private/initialize.php'); 
+<?php header("Cache-Control: no-cache"); 
+require_once('../../../private/initialize.php'); 
 require_login();
 
 $admins = Admin::find_all();
