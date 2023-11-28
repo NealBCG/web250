@@ -94,7 +94,7 @@
   }
 
   // has_unique_username('johnqpublic')
-  // * Validates uniqueness of admins.username
+  // * Validates uniqueness of members.username
   // * For new records, provide only the username.
   // * For existing records, provide current ID as second argument
   //   has_unique_username('johnqpublic', 4)

@@ -18,12 +18,6 @@
   require_once('db_credentials.php');
   require_once('database_functions.php');
   require_once('validation_functions.php');
-  
-  /*
-    You can list the required classes manually or use the autoload class.
-    I have purposely left the autoload class because the code is difficult.
-  */
-
 
   // Autoload class definitions
   function my_autoload($class) {
@@ -31,8 +25,9 @@
       include('classes/' . $class . '.class.php');
     }
   }
+
   spl_autoload_register('my_autoload');
   $database = db_connect();
   DatabaseObject::set_database($database);
-
+  $session = new Session;
 ?>

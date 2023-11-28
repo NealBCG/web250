@@ -20,10 +20,10 @@ if(is_post_request()) {
 
   // if there were no errors, try to login
   if(empty($errors)) {
-    $admin = Admin::find_by_username($username);
+    $member = member::find_by_username($username);
     
-    if($admin != false && $admin->verify_password($password)) {
-      $session->login($admin);
+    if($member != false && $member->verify_password($password)) {
+      $session->login($member);
       redirect_to(url_for('/staff/index.php'));
     } else {
       // username not found or password does not match

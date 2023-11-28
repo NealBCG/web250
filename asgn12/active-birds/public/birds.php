@@ -34,8 +34,6 @@
           <td><?php echo h($bird->conservation()) ?></td>
           <td><?php echo h($bird->backyard_tips) ?></td>
           <td><a href="detail.php?id=<?php echo $bird->id ?>">view</a></td>
-          <td><a href="edit.php?id=<?php echo $bird->id ?>">edit</a></td>
-          <td><a href="delete.php?id=<?php echo $bird->id ?>">delete</a></td>
         </tr>
       <?php } ?>
     </table>

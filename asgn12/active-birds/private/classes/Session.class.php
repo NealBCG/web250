@@ -1,6 +1,6 @@
 <?php
   class Session {
-    private $admin_id;
+    private $member_id;
     public $username;
     private $last_login;
 
@@ -11,26 +11,26 @@
       $this->check_stored_login();
     }
 
-    public function login($admin) {
-      if($admin) {
+    public function login($member) {
+      if($member) {
         session_regenerate_id();
-        $this->admin_id = $_SESSION['admin_id'] = $admin->id;
-        $this->username = $_SESSION['username'] = $admin->username;
+        $this->member_id = $_SESSION['member_id'] = $member->id;
+        $this->username = $_SESSION['username'] = $member->username;
         $this->last_login = $_SESSION['last_login'] = time();
       }
       return true;
     }
 
     public function is_logged_in() {
-      //return isset($this->admin_id);
-      return isset($this->admin_id) && $this->last_login_is_recent();
+      //return isset($this->member_id);
+      return isset($this->member_id) && $this->last_login_is_recent();
     }
 
     public function logout() {
-      unset($_SESSION['admin_id']);
+      unset($_SESSION['member_id']);
       unset($_SESSION['username']);
       unset($_SESSION['last_login']);
-      unset($this->admin_id);
+      unset($this->member_id);
       unset($this->username);
       unset($this->last_login);
 
@@ -38,9 +38,9 @@
     }
 
     private function check_stored_login() {
-      if(isset($_SESSION['admin_id']))
-        $this->admin_id = $_SESSION['admin_id'];
-        $this->admin_id = $_SESSION['username'];
+      if(isset($_SESSION['member_id']))
+        $this->member_id = $_SESSION['member_id'];
+        $this->member_id = $_SESSION['username'];
         $this->last_login = $_SESSION['last_login'];
     }
 

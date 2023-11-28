@@ -1,12 +1,12 @@
 <?php
-  require_once('../private/initialize.php');
+  require_once('../../../private/initialize.php');
 
   if(!isset($_GET['id']))
-    redirect_to(url_for('/birds.php'));
+    redirect_to(url_for('/index.php'));
   $id = $_GET['id'];
   $bird = bird::find_by_id($id);
   if($bird == false)
-    redirect_to(url_for('/birds.php'));
+    redirect_to('index.php');
 
   if(is_post_request()) {
     $args = $_POST['bird'];
@@ -15,7 +15,7 @@
 
     if($result === true) {
       $_SESSION['message'] = 'The bird was updated successfully.';
-      redirect_to(url_for('/detail.php?id=' . $id));
+      redirect_to('show.php?id=' . $id);
     }
   }
 ?>
@@ -24,13 +24,13 @@
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="content">
-  <a class="back-link" href="<?php echo url_for('/birds.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="index.php">&laquo; Back to List</a>
   <div class="bird edit">
     <h1>Edit bird</h1>
 
     <?php echo display_errors($bird->errors); ?>
 
-    <form action="<?php echo url_for('/edit.php?id=' . h(u($id))); ?>" method="post">
+    <form action="<?php echo 'edit.php?id=' . h(u($id)); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
       
