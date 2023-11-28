@@ -5,7 +5,7 @@
   if(!isset($_GET['id']))
     redirect_to(url_for('/index.php'));
   $id = $_GET['id'];
-  $bird = bird::find_by_id($id);
+  $bird = Bird::find_by_id($id);
   if($bird == false)
     redirect_to('index.php');
 

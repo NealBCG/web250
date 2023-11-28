@@ -4,7 +4,7 @@
 
   if(is_post_request()) {
     $args = $_POST['bird'];
-    $bird = new bird($args);
+    $bird = new Bird($args);
     $result = $bird->save();
     
     if($result === true) {

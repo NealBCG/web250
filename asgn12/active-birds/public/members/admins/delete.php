@@ -7,7 +7,7 @@
     redirect_to(url_for('/members/admins/index.php'));
   }
   $id = $_GET['id'];
-  $member = member::find_by_id($id);
+  $member = Member::find_by_id($id);
   if($member == false) {
     redirect_to(url_for('/members/admins/index.php'));
   }

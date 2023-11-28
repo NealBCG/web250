@@ -4,7 +4,7 @@ require_login();
 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 
-$member = member::find_by_id($id);
+$member = Member::find_by_id($id);
 $page_title = 'Show member: ' . h($member->full_name());
 include(SHARED_PATH . '/admin_header.php'); ?>
 

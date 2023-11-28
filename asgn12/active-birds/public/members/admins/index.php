@@ -3,7 +3,7 @@ require_once('../../../private/initialize.php');
 require_login();
 // access_denied();
 
-$members = member::find_all();
+$members = Member::find_all();
 
 $page_title = 'members'; 
 include(SHARED_PATH . '/admin_header.php'); ?>

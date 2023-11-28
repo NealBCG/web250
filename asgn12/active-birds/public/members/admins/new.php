@@ -6,7 +6,7 @@ if(is_post_request()) {
 
   // Create record using post parameters
   $args = $_POST['member'];
-  $member = new member($args);
+  $member = new Member($args);
   $result = $member->save();
 
   if($result === true) {
@@ -19,7 +19,7 @@ if(is_post_request()) {
 
 } else {
   // display the form
-  $member = new member;
+  $member = new Member;
 }
 
 ?>
