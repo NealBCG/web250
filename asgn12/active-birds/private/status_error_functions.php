@@ -5,34 +5,39 @@
       redirect_to(url_for('/members/login.php'));
   }
 
-function display_errors($errors=array()) {
-  $output = '';
-  if(!empty($errors)) {
-    $output .= "<div class=\"errors\">";
-    $output .= "Please fix the following errors:";
-    $output .= "<ul>";
-    foreach($errors as $error) {
-      $output .= "<li>" . h($error) . "</li>";
+  function display_errors($errors=array()) {
+    $output = '';
+    if(!empty($errors)) {
+      $output .= "<div class=\"errors\">";
+      $output .= "Please fix the following errors:";
+      $output .= "<ul>";
+      foreach($errors as $error) {
+        $output .= "<li>" . h($error) . "</li>";
+      }
+      $output .= "</ul>";
+      $output .= "</div>";
     }
-    $output .= "</ul>";
-    $output .= "</div>";
+    return $output;
   }
-  return $output;
-}
 
-function get_and_clear_session_message() {
-  if(isset($_SESSION['message']) && $_SESSION['message'] != '') {
-    $msg = $_SESSION['message'];
-    unset($_SESSION['message']);
-    return $msg;
+  function get_and_clear_session_message() {
+    if(isset($_SESSION['message']) && $_SESSION['message'] != '') {
+      $msg = $_SESSION['message'];
+      unset($_SESSION['message']);
+      return $msg;
+    }
   }
-}
 
-function display_session_message() {
-  $msg = get_and_clear_session_message();
-  if(isset($msg) && $msg != '') {
-    return '<div id="message">' . h($msg) . '</div>';
+  function display_session_message() {
+    $msg = get_and_clear_session_message();
+    if(isset($msg) && $msg != '') {
+      return '<div id="message">' . h($msg) . '</div>';
+    }
+
+    function access_denied() {
+      global $member;
+      if($member->user_level != 'a')
+        redirect_to(url_for('/members/forbidden.php'));
+    }
   }
-}
-
 ?>

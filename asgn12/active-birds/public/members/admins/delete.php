@@ -1,28 +1,27 @@
 <?php
+  require_once('../../../private/initialize.php');
+  require_login();
+  // access_denied();
 
-require_once('../../../private/initialize.php');
-require_login();
+  if(!isset($_GET['id'])) {
+    redirect_to(url_for('/members/admins/index.php'));
+  }
+  $id = $_GET['id'];
+  $member = member::find_by_id($id);
+  if($member == false) {
+    redirect_to(url_for('/members/admins/index.php'));
+  }
 
-if(!isset($_GET['id'])) {
-  redirect_to(url_for('/members/admins/index.php'));
-}
-$id = $_GET['id'];
-$member = member::find_by_id($id);
-if($member == false) {
-  redirect_to(url_for('/members/admins/index.php'));
-}
+  if(is_post_request()) {
 
-if(is_post_request()) {
+    // Delete member
+    $result = $member->delete();
+    $session->message('The member was deleted successfully.');
+    redirect_to(url_for('/members/admins/index.php'));
 
-  // Delete member
-  $result = $member->delete();
-  $session->message('The member was deleted successfully.');
-  redirect_to(url_for('/members/admins/index.php'));
-
-} else {
-  // Display form
-}
-
+  } else {
+    // Display form
+  }
 ?>
 
 <?php $page_title = 'Delete member'; ?>

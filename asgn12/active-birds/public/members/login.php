@@ -1,39 +1,42 @@
 <?php
-require_once('../../private/initialize.php');
+  require_once('../../private/initialize.php');
 
-$errors = [];
-$username = '';
-$password = '';
+  if($session->is_logged_in())
+    redirect_to('index.php');
 
-if(is_post_request()) {
+  $errors = [];
+  $username = '';
+  $password = '';
 
-  $username = $_POST['username'] ?? '';
-  $password = $_POST['password'] ?? '';
+  if(is_post_request()) {
 
-  // Validations
-  if(is_blank($username)) {
-    $errors[] = "Username cannot be blank.";
-  }
-  if(is_blank($password)) {
-    $errors[] = "Password cannot be blank.";
-  }
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
 
-  // if there were no errors, try to login
-  if(empty($errors)) {
-    $member = member::find_by_username($username);
-    
-    if($member != false && $member->verify_password($password)) {
-      $session->login($member);
-      redirect_to(url_for('/members/index.php'));
-    } else {
-      // username not found or password does not match
-      $errors[] = "Log in was unsuccessful.";
+    // Validations
+    if(is_blank($username)) {
+      $errors[] = "Username cannot be blank.";
+    }
+    if(is_blank($password)) {
+      $errors[] = "Password cannot be blank.";
     }
 
+    // if there were no errors, try to login
+    if(empty($errors)) {
+      $member = member::find_by_username($username);
+      
+      if($member != false && $member->verify_password($password)) {
+        $session->login($member);
+        if($member->user_level == 'm') 
+          redirect_to(url_for('/members/birds/index.php'));
+        else
+          redirect_to(url_for('/members/index.php'));
+      } else {
+        // username not found or password does not match
+        $errors[] = "Log in was unsuccessful.";
+      }
+    }
   }
-
-}
-
 ?>
 
 <?php $page_title = 'Log in'; ?>
@@ -51,7 +54,6 @@ if(is_post_request()) {
     <input type="password" name="password" value=""><br>
     <input type="submit" name="submit" value="Submit">
   </form>
-
 </div>
 
-<?php include(SHARED_PATH . '/members_footer.php'); ?>
+<?php include(SHARED_PATH . '/public_footer.php'); ?>

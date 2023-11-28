@@ -1,5 +1,6 @@
 <?php require_once('../../../private/initialize.php'); 
 require_login();
+// access_denied();
 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 
@@ -29,6 +30,11 @@ include(SHARED_PATH . '/admin_header.php'); ?>
       <dl>
         <dt>Username</dt>
         <dd><?php echo h($member->username); ?></dd>
+      </dl>
+
+      <dl>
+        <dt>User Level</dt>
+        <dd><?php echo h($member->user_level); ?></dd>
       </dl>
     </div>
   </div>

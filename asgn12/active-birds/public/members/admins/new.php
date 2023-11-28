@@ -1,5 +1,6 @@
 <?php require_once('../../../private/initialize.php');
 require_login();
+// access_denied();
 
 if(is_post_request()) {
 
@@ -12,8 +13,8 @@ if(is_post_request()) {
     $new_id = $member->id;
     $session->message('The member was created successfully.');
     redirect_to(url_for('/members/admins/show.php?id=' . $new_id));
-  } else {
-    // show errors
+  } elseif(!has_unique_username($member->username, $member->id ?? 0)) {
+    $member->errors[] = "Username is already taken. Try another.";
   }
 
 } else {
@@ -27,9 +28,7 @@ if(is_post_request()) {
 <?php include(SHARED_PATH . '/admin_header.php'); ?>
 
 <div id="content">
-
   <a class="back-link" href="<?php echo url_for('/members/admins/index.php'); ?>">&laquo; Back to List</a>
-
   <div class="member new">
     <h1>Create member</h1>
 
@@ -43,9 +42,7 @@ if(is_post_request()) {
         <input type="submit" value="Create member" />
       </div>
     </form>
-
   </div>
-
 </div>
 
 <?php include(SHARED_PATH . '/public_footer.php'); ?>

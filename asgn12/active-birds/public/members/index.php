@@ -1,6 +1,7 @@
 <?php 
 require_once('../../private/initialize.php'); 
 require_login();
+// access_denied();
 $page_title = 'members Menu'; 
 include(SHARED_PATH . '/admin_header.php'); ?>
 

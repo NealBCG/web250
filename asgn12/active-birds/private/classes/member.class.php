@@ -14,6 +14,7 @@
     public $password;
     public $confirm_password;
     protected $password_required = true;
+    public const USER_LEVEL = ['a' => 'Administrator', 'm' => 'Member'];
 
     public function __construct($args=[]) {
       $this->first_name = $args['first_name'] ?? '';
@@ -80,8 +81,9 @@
       } elseif (!has_length($this->username, array('min' => 8, 'max' => 255))) {
         $this->errors[] = "Username must be between 8 and 255 characters.";
       }
-      elseif(!has_unique_username($this->username, $this->id ?? 0)) {
-        $this->errors[] = "Username is already taken. Try another.";
+
+      if(is_blank($this->user_level)) {
+        $this->errors[] = "User level cannot be blank.";
       }
 
       if($this->password_required) {
