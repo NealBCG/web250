@@ -24,7 +24,7 @@ if(is_post_request()) {
     
     if($member != false && $member->verify_password($password)) {
       $session->login($member);
-      redirect_to(url_for('/staff/index.php'));
+      redirect_to(url_for('/members/index.php'));
     } else {
       // username not found or password does not match
       $errors[] = "Log in was unsuccessful.";
@@ -37,7 +37,7 @@ if(is_post_request()) {
 ?>
 
 <?php $page_title = 'Log in'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="content">
   <h1>Log in</h1>
@@ -54,4 +54,4 @@ if(is_post_request()) {
 
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include(SHARED_PATH . '/members_footer.php'); ?>

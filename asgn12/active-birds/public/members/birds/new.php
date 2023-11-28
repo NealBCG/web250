@@ -1,5 +1,6 @@
 <?php
   require_once('../../../private/initialize.php');
+  require_login();
 
   if(is_post_request()) {
     $args = $_POST['bird'];
@@ -17,7 +18,7 @@
 ?>
 
 <?php $page_title = 'Create bird'; ?>
-<?php include(SHARED_PATH . '/public_header.php'); ?>
+<?php include(SHARED_PATH . '/member_header.php'); ?>
 
 <div id="content">
   <a class="back-link" href="index.php">&laquo; Back to List</a>

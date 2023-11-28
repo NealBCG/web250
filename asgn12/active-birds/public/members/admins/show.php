@@ -5,14 +5,12 @@ $id = $_GET['id'] ?? '1'; // PHP > 7.0
 
 $member = member::find_by_id($id);
 $page_title = 'Show member: ' . h($member->full_name());
-include(SHARED_PATH . '/staff_header.php'); ?>
+include(SHARED_PATH . '/admin_header.php'); ?>
 
 <div id="content">
-
-  <a class="back-link" href="<?php echo url_for('/staff/members/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/members/admins/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="member show">
-
     <h1>member: <?php echo h($member->full_name()); ?></h1>
 
     <div class="attributes">
@@ -33,7 +31,7 @@ include(SHARED_PATH . '/staff_header.php'); ?>
         <dd><?php echo h($member->username); ?></dd>
       </dl>
     </div>
-
   </div>
-
 </div>
+
+<?php include(SHARED_PATH . '/public_footer.php'); ?>

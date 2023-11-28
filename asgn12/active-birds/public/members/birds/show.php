@@ -1,4 +1,6 @@
 <?php require_once('../../../private/initialize.php');
+  require_login();
+
   $id =$_GET['id'] ?? false;
   if(!$id)
     redirect_to('index.php');
@@ -6,7 +8,8 @@
 ?>
 
 <?php $page_title = 'Detail: ' . $bird->common_name; ?>
-<?php include(SHARED_PATH . '/public_header.php'); ?>
+<?php include(SHARED_PATH . '/member_header.php'); ?>
+
 
 <div id="main">
   <a href="index.php">Back to Birds</a>

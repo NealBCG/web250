@@ -1,26 +1,26 @@
 <?php
+  require_once('../../../private/initialize.php');
+  require_login();
 
-require_once('../../../private/initialize.php');
+  if(!isset($_GET['id'])) {
+    redirect_to(url_for('/index.php'));
+  }
+  $id = $_GET['id'];
+  $bird = Bird::find_by_id($id);
+  if($bird == false)
+    redirect_to('index.php');
 
-if(!isset($_GET['id'])) {
-  redirect_to(url_for('/index.php'));
-}
-$id = $_GET['id'];
-$bird = Bird::find_by_id($id);
-if($bird == false)
-  redirect_to('index.php');
+  if(is_post_request()) {
 
-if(is_post_request()) {
-
-  $result = $bird->delete();
-  $_SESSION['message'] = 'The bird was deleted successfully.';
-  redirect_to('index.php');
-}
+    $result = $bird->delete();
+    $_SESSION['message'] = 'The bird was deleted successfully.';
+    redirect_to('index.php');
+  }
 
 ?>
 
 <?php $page_title = 'Delete Bird'; ?>
-<?php include(SHARED_PATH . '/public_header.php'); ?>
+<?php include(SHARED_PATH . '/member_header.php'); ?>
 
 <div id="content">
 

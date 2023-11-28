@@ -1,5 +1,6 @@
 <?php
   require_once('../../../private/initialize.php');
+  require_login();
 
   if(!isset($_GET['id']))
     redirect_to(url_for('/index.php'));
@@ -21,7 +22,7 @@
 ?>
 
 <?php $page_title = 'Edit bird'; ?>
-<?php include(SHARED_PATH . '/public_header.php'); ?>
+<?php include(SHARED_PATH . '/member_header.php'); ?>
 
 <div id="content">
   <a class="back-link" href="index.php">&laquo; Back to List</a>

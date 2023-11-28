@@ -1,7 +1,9 @@
 <?php header("Cache-Control: no-cache"); 
   require_once('../../../private/initialize.php');
+  require_login();
+
   $page_title = 'Sightings';
-  include(SHARED_PATH . '/staff_header.php');
+  include(SHARED_PATH . '/member_header.php');
 ?>
 
 <div id="main">

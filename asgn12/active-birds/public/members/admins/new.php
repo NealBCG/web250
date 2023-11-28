@@ -11,7 +11,7 @@ if(is_post_request()) {
   if($result === true) {
     $new_id = $member->id;
     $session->message('The member was created successfully.');
-    redirect_to(url_for('/staff/members/show.php?id=' . $new_id));
+    redirect_to(url_for('/members/admins/show.php?id=' . $new_id));
   } else {
     // show errors
   }
@@ -24,18 +24,18 @@ if(is_post_request()) {
 ?>
 
 <?php $page_title = 'Create member'; ?>
-<?php include(SHARED_PATH . '/staff_header.php'); ?>
+<?php include(SHARED_PATH . '/admin_header.php'); ?>
 
 <div id="content">
 
-  <a class="back-link" href="<?php echo url_for('/staff/members/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/members/admins/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="member new">
     <h1>Create member</h1>
 
     <?php echo display_errors($member->errors); ?>
 
-    <form action="<?php echo url_for('/staff/members/new.php'); ?>" method="post">
+    <form action="<?php echo url_for('/members/admins/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 
@@ -48,4 +48,4 @@ if(is_post_request()) {
 
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include(SHARED_PATH . '/public_footer.php'); ?>

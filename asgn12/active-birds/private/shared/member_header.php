@@ -1,26 +1,25 @@
 <?php
-  if(!isset($page_title)) { $page_title = 'Staff Area'; }
+  if(!isset($page_title)) { $page_title = 'members Area'; }
 ?>
 
 <!doctype html>
 
 <html lang="en">
   <head>
-    <title>Chain Gang - <?php echo h($page_title); ?></title>
+    <title>WNC Birds <?php if(isset($page_title)) { echo '- ' . h($page_title); } ?></title>
     <meta charset="utf-8">
   </head>
 
   <body>
     <header>
-      <h1>Chain Gang Staff Area</h1>
+      <h1>Southern Appalachian Birds Member Area</h1>
     </header>
 
     <navigation>
       <ul>
         <?php if($session->is_logged_in()) { ?>
         <li>User: <?php echo $session->username ?></li>
-        <li><a href="<?php echo url_for('/staff/index.php'); ?>">Menu</a></li>
-        <li><a href="<?php echo url_for('/staff/logout.php'); ?>">Log out</a></li>
+        <li><a href="<?php echo url_for('/members/logout.php'); ?>">Log out</a></li>
         <?php } ?>
       </ul>
     </navigation>

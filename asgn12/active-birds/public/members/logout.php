@@ -4,6 +4,6 @@ require_login();
 
 $session->logout();
 
-redirect_to(url_for('/staff/login.php'));
+redirect_to(url_for('/members/login.php'));
 
 ?>

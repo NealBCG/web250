@@ -4,14 +4,14 @@ require_login();
 
 $members = member::find_all();
 $page_title = 'members'; 
-include(SHARED_PATH . '/staff_header.php'); ?>
+include(SHARED_PATH . '/admin_header.php'); ?>
 
 <div id="content">
   <div class="members listing">
     <h1>members</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/staff/members/new.php'); ?>">Add member</a>
+      <a class="action" href="<?php echo url_for('/members/admins/new.php'); ?>">Add member</a>
     </div>
 
   	<table class="list">
@@ -33,9 +33,9 @@ include(SHARED_PATH . '/staff_header.php'); ?>
           <td><?php echo h($member->last_name); ?></td>
           <td><?php echo h($member->email); ?></td>
           <td><?php echo h($member->username); ?></td>
-          <td><a class="action" href="<?php echo url_for('/staff/members/show.php?id=' . h(u($member->id))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/members/edit.php?id=' . h(u($member->id))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/staff/members/delete.php?id=' . h(u($member->id))); ?>">Delete</a></td>
+          <td><a class="action" href="<?php echo url_for('/members/admins/show.php?id=' . h(u($member->id))); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for('/members/admins/edit.php?id=' . h(u($member->id))); ?>">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/members/admins/delete.php?id=' . h(u($member->id))); ?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>
@@ -44,4 +44,4 @@ include(SHARED_PATH . '/staff_header.php'); ?>
 
 </div>
 
-<?php include(SHARED_PATH . '/staff_footer.php'); ?>
+<?php include(SHARED_PATH . '/public_footer.php'); ?>
