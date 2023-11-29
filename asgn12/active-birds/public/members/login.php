@@ -25,7 +25,7 @@
   
     // Put secret key here, which we get 
     // from google console 
-    $secret_key = '6LdD5x8pAAAAAG4y9saK_0if0b-QMEk-hl-1Ho61'; 
+    $secret_key = ''; 
   
     // Hitting request to the URL, Google will 
     // respond with success or error scenario 
@@ -86,7 +86,7 @@
     Captcha:<br>
 
     <div class="g-recaptcha" 
-      data-sitekey="6LdD5x8pAAAAAF6bd_lDvJ0gz8Fm1EJBBwhSlVli"> 
+      data-sitekey=""> 
     </div> 
     <br> 
 
