@@ -1,3 +1,4 @@
+// Google recaptcha code from: https://www.geeksforgeeks.org/google-recaptcha-integration-in-php/#
 <?php
   require_once('../../private/initialize.php');
 
@@ -12,6 +13,7 @@
 
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
+    $recaptcha = $_POST['g-recaptcha-response']; 
 
     // Validations
     if(is_blank($username)) {
@@ -20,14 +22,34 @@
     if(is_blank($password)) {
       $errors[] = "Password cannot be blank.";
     }
-    if($_POST['captcha'] != $_SESSION['digit']) {
-      die("Sorry, the CAPTCHA code entered was incorrect!");
-      session_destroy();
-    }
+  
+    // Put secret key here, which we get 
+    // from google console 
+    $secret_key = '6LdD5x8pAAAAAG4y9saK_0if0b-QMEk-hl-1Ho61'; 
+  
+    // Hitting request to the URL, Google will 
+    // respond with success or error scenario 
+    $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
+          . $secret_key . '&response=' . $recaptcha; 
+  
+    // Making request to verify captcha 
+    $response = file_get_contents($url); 
+  
+    // Response return by google is in 
+    // JSON format, so we have to parse 
+    // that json 
+    $response = json_decode($response); 
+  
+    // Checking, if response is true or not 
+    if ($response->success == true) { 
+        echo '<script>alert("Google reCAPTACHA verified")</script>'; 
+    } else { 
+        echo '<script>alert("Error in Google reCAPTACHA")</script>'; 
+    } 
 
     // if there were no errors, try to login
     if(empty($errors)) {
-      $member = member::find_by_username($username);
+      $member = Member::find_by_username($username);
       
       if($member != false && $member->verify_password($password)) {
         $session->login($member);
@@ -46,6 +68,9 @@
 <?php $page_title = 'Log in'; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
+<script src= 
+  "https://www.google.com/recaptcha/api.js" async defer> 
+</script> 
 <div id="content">
   <h1>Log in</h1>
 
@@ -59,9 +84,11 @@
     <input type="password" name="password" value=""><br>
     <br>
     Captcha:<br>
-    <img src="captcha.php" width="240" height="60" border=1 alt="CAPTCHA">
-    <p><input type="text" size="6" maxlength="5" name="captcha" value=""><br>
-    <small>copy the digits from the image into this box</small></p>
+
+    <div class="g-recaptcha" 
+      data-sitekey="6LdD5x8pAAAAAF6bd_lDvJ0gz8Fm1EJBBwhSlVli"> 
+    </div> 
+    <br> 
 
     <input type="submit" name="submit" value="Submit">
   </form>
