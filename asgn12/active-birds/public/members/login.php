@@ -1,5 +1,4 @@
-// Google recaptcha code from: https://www.geeksforgeeks.org/google-recaptcha-integration-in-php/#
-<?php
+<?php // Google recaptcha code from: https://www.geeksforgeeks.org/google-recaptcha-integration-in-php/#
   require_once('../../private/initialize.php');
 
   if($session->is_logged_in())
@@ -13,7 +12,7 @@
 
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
-    $recaptcha = $_POST['g-recaptcha-response']; 
+   // $recaptcha = $_POST['g-recaptcha-response']; 
 
     // Validations
     if(is_blank($username)) {
@@ -25,27 +24,27 @@
   
     // Put secret key here, which we get 
     // from google console 
-    $secret_key = ''; 
+   // $secret_key = ''; 
   
     // Hitting request to the URL, Google will 
     // respond with success or error scenario 
-    $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
-          . $secret_key . '&response=' . $recaptcha; 
+   // $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
+   //       . $secret_key . '&response=' . $recaptcha; 
   
     // Making request to verify captcha 
-    $response = file_get_contents($url); 
+   // $response = file_get_contents($url); 
   
     // Response return by google is in 
     // JSON format, so we have to parse 
     // that json 
-    $response = json_decode($response); 
+   // $response = json_decode($response); 
   
     // Checking, if response is true or not 
-    if ($response->success == true) { 
-        echo '<script>alert("Google reCAPTACHA verified")</script>'; 
-    } else { 
-        echo '<script>alert("Error in Google reCAPTACHA")</script>'; 
-    } 
+   // if ($response->success == true) { 
+    //    echo '<script>alert("Google reCAPTACHA verified")</script>'; 
+    //} else { 
+    //    echo '<script>alert("Error in Google reCAPTACHA")</script>'; 
+    //} 
 
     // if there were no errors, try to login
     if(empty($errors)) {

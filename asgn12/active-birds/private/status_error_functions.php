@@ -34,10 +34,10 @@
       return '<div id="message">' . h($msg) . '</div>';
     }
 
-    function access_denied() {
-      global $member;
-      if($member->user_level != 'a')
-        redirect_to(url_for('/members/forbidden.php'));
+  function access_denied() {
+    global $member;
+    if($member->user_level != 'a')
+      redirect_to(url_for('/members/forbidden.php'));
     }
   }
 ?>

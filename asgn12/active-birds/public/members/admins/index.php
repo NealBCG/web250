@@ -3,6 +3,7 @@ require_once('../../../private/initialize.php');
 require_login();
 // access_denied();
 
+
 $members = Member::find_all();
 
 $page_title = 'members'; 
