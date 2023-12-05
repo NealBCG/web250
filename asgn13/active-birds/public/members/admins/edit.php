@@ -36,7 +36,7 @@ if(is_post_request()) {
 ?>
 
 <?php $page_title = 'Edit member'; ?>
-<?php include(SHARED_PATH . '/admin_header.php'); ?>
+<?php include(SHARED_PATH . '/user_header.php'); ?>
 
 <div id="content">
 

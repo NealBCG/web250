@@ -25,7 +25,7 @@
 ?>
 
 <?php $page_title = 'Delete member'; ?>
-<?php include(SHARED_PATH . '/admin_header.php'); ?>
+<?php include(SHARED_PATH . '/user_header.php'); ?>
 
 <div id="content">
 

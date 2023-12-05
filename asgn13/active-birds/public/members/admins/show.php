@@ -6,7 +6,7 @@ $id = $_GET['id'] ?? '1'; // PHP > 7.0
 
 $member = Member::find_by_id($id);
 $page_title = 'Show member: ' . h($member->full_name());
-include(SHARED_PATH . '/admin_header.php'); ?>
+include(SHARED_PATH . '/user_header.php'); ?>
 
 <div id="content">
   <a class="back-link" href="<?php echo url_for('/members/admins/index.php'); ?>">&laquo; Back to List</a>

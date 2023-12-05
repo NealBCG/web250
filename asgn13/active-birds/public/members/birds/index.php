@@ -3,7 +3,7 @@
   require_login();
 
   $page_title = 'Sightings';
-  include(SHARED_PATH . '/member_header.php');
+  include(SHARED_PATH . '/user_header.php');
 ?>
 
 <div id="main">

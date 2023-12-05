@@ -8,7 +8,7 @@
   function access_denied() {
     global $session;
     if($session->user_level != 'a')
-      redirect_to(url_for('/members/forbidden.php'));
+      redirect_to(url_for('/members/birds/index.php'));
     }
 
   function display_errors($errors=array()) {

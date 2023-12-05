@@ -54,10 +54,9 @@
         $session->login($member);
         if($member->user_level == 'm') 
           redirect_to(url_for('/members/birds/index.php'));
+        elseif ($member->user_level == 'a')
+          redirect_to(url_for('/members/admins/index.php'));
         else
-          redirect_to(url_for('/members/index.php'));
-      } else {
-        // username not found or password does not match
         $errors[] = "Log in was unsuccessful.";
       }
     }

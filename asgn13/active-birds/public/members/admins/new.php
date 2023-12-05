@@ -25,7 +25,7 @@ if(is_post_request()) {
 ?>
 
 <?php $page_title = 'Create member'; ?>
-<?php include(SHARED_PATH . '/admin_header.php'); ?>
+<?php include(SHARED_PATH . '/user_header.php'); ?>
 
 <div id="content">
   <a class="back-link" href="<?php echo url_for('/members/admins/index.php'); ?>">&laquo; Back to List</a>
