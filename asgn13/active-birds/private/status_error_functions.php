@@ -5,6 +5,12 @@
       redirect_to(url_for('/members/login.php'));
   }
 
+  function access_denied() {
+    global $session;
+    if($session->user_level != 'a')
+      redirect_to(url_for('/members/forbidden.php'));
+    }
+
   function display_errors($errors=array()) {
     $output = '';
     if(!empty($errors)) {
@@ -32,12 +38,6 @@
     $msg = get_and_clear_session_message();
     if(isset($msg) && $msg != '') {
       return '<div id="message">' . h($msg) . '</div>';
-    }
-
-  function access_denied() {
-    global $member;
-    if($member->user_level != 'a')
-      redirect_to(url_for('/members/forbidden.php'));
     }
   }
 ?>

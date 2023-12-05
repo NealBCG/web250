@@ -1,7 +1,7 @@
 <?php header("Cache-Control: no-cache"); 
 require_once('../../../private/initialize.php'); 
 require_login();
-// access_denied();
+access_denied();
 
 
 $members = Member::find_all();

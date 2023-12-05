@@ -1,7 +1,7 @@
 <?php
   require_once('../../../private/initialize.php');
   require_login();
-  // access_denied();
+  access_denied();
 
   if(!isset($_GET['id'])) {
     redirect_to(url_for('/members/admins/index.php'));

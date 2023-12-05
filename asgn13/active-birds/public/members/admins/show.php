@@ -1,6 +1,6 @@
 <?php require_once('../../../private/initialize.php'); 
 require_login();
-// access_denied();
+access_denied();
 
 $id = $_GET['id'] ?? '1'; // PHP > 7.0
 

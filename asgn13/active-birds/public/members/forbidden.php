@@ -1,6 +1,5 @@
 <?php require_once('../../private/initialize.php'); 
-require_login(); 
-var_dump($member->user_level); ?>
+require_login(); ?>
 
 <!doctype html>
 <html lang="en">
