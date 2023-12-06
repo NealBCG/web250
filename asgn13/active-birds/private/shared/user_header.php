@@ -20,7 +20,7 @@
       <ul>
         <?php if($session->is_logged_in()) { ?>
         <li>User: <?php echo $session->username ?></li>
-        <li>User level: <?php echo $session->user_level_name() ?></li>
+        <li>User level: <?php echo $session->suser_level_name() ?></li>
         <?php if($session->user_level == 'a') {
           echo '<li><a href="' . url_for('/members/birds/index.php') . '">Birds</a></li>';
           echo '<li><a href="' . url_for('/members/admins/index.php') . '">Members</a></li>';

@@ -67,5 +67,14 @@
     public function clear_message() {
       unset($_SESSION['message']);
     }
+
+    public function suser_level_name() {
+      if($this->user_level == 'm')
+        echo 'Member';
+      elseif($this->user_level == 'a')
+        echo 'Administrator';
+      else
+        echo 'Error';
+    }
   }
 ?>

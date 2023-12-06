@@ -37,7 +37,7 @@ include(SHARED_PATH . '/user_header.php'); ?>
           <td><?php echo h($member->last_name); ?></td>
           <td><?php echo h($member->email); ?></td>
           <td><?php echo h($member->username); ?></td>
-          <td><?php $member->user_level_name() ?></td>
+          <td><?php $member->user_level_name(); ?></td>
           <td><a class="action" href="<?php echo url_for('/members/admins/show.php?id=' . h(u($member->id))); ?>">View</a></td>
           <td><a class="action" href="<?php echo url_for('/members/admins/edit.php?id=' . h(u($member->id))); ?>">Edit</a></td>
           <td><a class="action" href="<?php echo url_for('/members/admins/delete.php?id=' . h(u($member->id))); ?>">Delete</a></td>
