@@ -20,13 +20,6 @@
       $this->last_login = $_SESSION['last_login'] = time();
       return true;
     }
-
-    public function user_level_name() {
-      if($this->user_level == 'm')
-       echo 'Member';
-      else
-        echo 'Administrator';
-    }
     
     public function is_logged_in() {
       return isset($this->member_id) && $this->last_login_is_recent();
