@@ -11,10 +11,6 @@
       <p>This is a short list -- start your birding!</p>
     </div>
 
-    <div class="actions">
-      <a class="action" href="<?php echo url_for('/new.php'); ?>">Add Bird</a>
-    </div>
-
     <table id="inventory" border=1>
       <tr>
         <th>Common Name</th>

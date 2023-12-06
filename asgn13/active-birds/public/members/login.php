@@ -52,12 +52,12 @@
       
       if($member != false && $member->verify_password($password)) {
         $session->login($member);
-        if($member->user_level == 'm') 
+        if($session->user_level == 'm') 
           redirect_to(url_for('/members/birds/index.php'));
-        elseif ($member->user_level == 'a')
+        elseif ($session->user_level == 'a')
           redirect_to(url_for('/members/admins/index.php'));
         else
-        $errors[] = "Log in was unsuccessful.";
+          $errors[] = "Log in was unsuccessful.";
       }
     }
   }
