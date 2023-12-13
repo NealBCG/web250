@@ -9,7 +9,7 @@ $page_title = 'Show member: ' . h($member->full_name());
 include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="content">
-  <a class="back-link" href="<?php echo url_for('/members/admins/index.php'); ?>">&laquo; Back to List</a>
+  <a class="back-link" href="<?php echo url_for('/admins/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="member show">
     <h1>member: <?php echo h($member->full_name()); ?></h1>

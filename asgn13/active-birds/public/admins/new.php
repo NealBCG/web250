@@ -34,7 +34,7 @@ if(is_post_request()) {
 
     <?php echo display_errors($member->errors); ?>
 
-    <form action="<?php echo url_for('/members/admins/new.php'); ?>" method="post">
+    <form action="<?php echo url_for('/admins/new.php'); ?>" method="post">
 
       <?php include('form_fields.php'); ?>
 

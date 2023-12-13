@@ -5,12 +5,12 @@ require_login();
 access_denied();
 
 if(!isset($_GET['id'])) {
-  redirect_to(url_for('/members/admins/index.php'));
+  redirect_to(url_for('/admins/index.php'));
 }
 $id = $_GET['id'];
 $member = Member::find_by_id($id);
 if($member == false) {
-  redirect_to(url_for('/members/admins/index.php'));
+  redirect_to(url_for('/admins/index.php'));
 }
 
 if(is_post_request()) {
@@ -22,7 +22,7 @@ if(is_post_request()) {
 
   if($result === true) {
     $session->message('The member was updated successfully.');
-    redirect_to(url_for('/members/admins/show.php?id=' . $id));
+    redirect_to(url_for('/admins/show.php?id=' . $id));
   } else {
     // show errors
   }
