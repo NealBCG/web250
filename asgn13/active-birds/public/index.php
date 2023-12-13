@@ -4,7 +4,7 @@
 ?>
 
   <ul>
-    <li><a href="<?php echo url_for('/birds.php'); ?>">View Our List of WNC Birds</a></li>
+    <li><a href="<?php echo url_for('/birds/index.php'); ?>">View Our List of WNC Birds</a></li>
     <li><a href="<?php echo url_for('/about.php'); ?>">About Us</a></li>
     <li><a href="<?php echo url_for('members/login.php'); ?>">Member login</a></li>
   </ul>

@@ -1,6 +1,5 @@
 <?php header("Cache-Control: no-cache"); 
-  require_once('../../../private/initialize.php');
-  require_login();
+  require_once('../../private/initialize.php');
 
   $page_title = 'Sightings';
   include(SHARED_PATH . '/public_header.php');
@@ -13,9 +12,11 @@
       <p>This is a short list -- start your birding!</p>
     </div>
 
-    <div class="actions">
-      <a class="action" href="new.php">Add Bird</a>
-    </div>
+    <?php if($session->is_logged_in()) { ?>
+      <div class="actions">
+        <a class="action" href="new.php">Add Bird</a>
+      </div>
+    <?php } ?>
 
     <table id="inventory" border=1>
       <tr>
@@ -36,8 +37,10 @@
           <td><?php echo h($bird->conservation()) ?></td>
           <td><?php echo h($bird->backyard_tips) ?></td>
           <td><a href="show.php?id=<?php echo $bird->id ?>">view</a></td>
-          <td><a href="edit.php?id=<?php echo $bird->id ?>">edit</a></td>
-          <td><a href="delete.php?id=<?php echo $bird->id ?>">delete</a></td>
+          <?php if($session->is_logged_in()) { ?>
+            <td><a href="edit.php?id=<?php echo $bird->id ?>">edit</a></td>
+            <td><a href="delete.php?id=<?php echo $bird->id ?>">delete</a></td>
+          <?php } ?>
         </tr>
       <?php } ?>
     </table>

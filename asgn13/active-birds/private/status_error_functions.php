@@ -10,7 +10,7 @@
     if($session->user_level != 'a') {
       $_SESSION['message'] = "Error: you do not have permission to access " . $_SERVER['PHP_SELF'] . ". 
       You have been redirected to birds/index.php.";
-      redirect_to(url_for('/members/birds/index.php'));
+      redirect_to(url_for('/birds/index.php'));
     }
   }
 

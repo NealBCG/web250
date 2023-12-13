@@ -1,5 +1,5 @@
 <?php header("Cache-Control: no-cache"); 
-require_once('../../../private/initialize.php'); 
+require_once('../../private/initialize.php'); 
 require_login();
 access_denied();
 
