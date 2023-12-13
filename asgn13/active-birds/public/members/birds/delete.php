@@ -20,7 +20,7 @@
 ?>
 
 <?php $page_title = 'Delete Bird'; ?>
-<?php include(SHARED_PATH . '/user_header.php'); ?>
+<?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="content">
 

@@ -22,7 +22,7 @@
 ?>
 
 <?php $page_title = 'Edit bird'; ?>
-<?php include(SHARED_PATH . '/user_header.php'); ?>
+<?php include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="content">
   <a class="back-link" href="index.php">&laquo; Back to List</a>

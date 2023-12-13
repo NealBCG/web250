@@ -7,7 +7,7 @@ access_denied();
 $members = Member::find_all();
 
 $page_title = 'members'; 
-include(SHARED_PATH . '/user_header.php'); ?>
+include(SHARED_PATH . '/public_header.php'); ?>
 
 <div id="content">
   <div class="members listing">

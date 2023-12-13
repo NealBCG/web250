@@ -8,7 +8,7 @@
 ?>
 
 <?php $page_title = 'Detail: ' . $bird->common_name; ?>
-<?php include(SHARED_PATH . '/user_header.php'); ?>
+<?php include(SHARED_PATH . '/public_header.php'); ?>
 
 
 <div id="main">
