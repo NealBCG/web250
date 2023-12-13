@@ -26,6 +26,7 @@ if(!isset($member)) {
   <dd><input type="text" name="member[username]" value="<?php echo h($member->username); ?>" /></dd>
 </dl>
 
+<?php if($session->is_logged_in()) { ?>
 <dl>
   <dt>User Level</dt>
     <dd>
@@ -38,13 +39,14 @@ if(!isset($member)) {
       </select>
     </dd>
 </dl>
+<?php } ?>
 
 <dl>
   <dt>Password</dt>
-  <dd><input type="password" name="member[password]" value="" /></dd>
+  <dd><input type="password" name="member[password]" value=""></dd>
 </dl>
 
 <dl>
   <dt>Confirm Password</dt>
-  <dd><input type="password" name="member[confirm_password]" value="" /></dd>
+  <dd><input type="password" name="member[confirm_password]" value=""></dd>
 </dl>

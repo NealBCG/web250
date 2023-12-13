@@ -71,6 +71,7 @@
 </script> 
 <div id="content">
   <h1>Log in</h1>
+  <h3><a href="<?php echo url_for('members/signup.php'); ?>">Or create an account</a></h3>
 
   <?php echo display_errors($errors); ?>
 

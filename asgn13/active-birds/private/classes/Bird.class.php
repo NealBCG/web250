@@ -12,11 +12,11 @@
     public const CONSERVATION = [1=>'Low concern', 2=>'Moderate concern', 3=>'Extreme concern', 4=>'Extinct'];
 
     public function __construct($args=[]) {
-      $this->common_name = $args['common_name'] ?? 'American Black Bear';
-      $this->habitat = $args['habitat'] ?? 'Your neighborhood';
-      $this->food = $args['food'] ?? 'Everything';
+      $this->common_name = $args['common_name'] ?? 'r';
+      $this->habitat = $args['habitat'] ?? '';
+      $this->food = $args['food'] ?? '';
       $this->conservation_id = $args['conservation_id'] ?? 1;
-      $this->backyard_tips = $args['backyard_tips'] ?? 'Hang a bird feeder in your yard to watch a bear open the top and devour the seeds. Refill often.';
+      $this->backyard_tips = $args['backyard_tips'] ?? '';
     }
 
     public function conservation() {
