@@ -1,7 +1,11 @@
 <?php require_once('../../private/initialize.php');
 
+$errors = [];
+
 if(is_post_request()) {
 
+  // include('../members/captcha.php');
+  
   // Create record using post parameters
   $args = $_POST['member'];
   $member = new Member($args);
@@ -27,6 +31,9 @@ if(is_post_request()) {
 <?php $page_title = 'Create account'; ?>
 <?php include(SHARED_PATH . '/public_header.php'); ?>
 
+<script src= 
+  "https://www.google.com/recaptcha/api.js" async defer> 
+</script> 
 <div id="content">
   <a class="back-link" href="<?php echo url_for('/members/login.php'); ?>">&laquo; Back to log in</a>
   <div class="member new">
@@ -37,6 +44,9 @@ if(is_post_request()) {
     <form action="<?php echo url_for('/members/signup.php'); ?>" method="post">
 
       <?php include('../admins/form_fields.php'); ?>
+
+      Captcha:<br>
+      <div class="g-recaptcha" data-sitekey=""></div><br> 
 
       <div id="operations">
         <input type="submit" value="Create account">
