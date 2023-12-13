@@ -1,10 +1,13 @@
 <?php require_once('../../private/initialize.php');
 
+if($session->is_logged_in())
+  redirect_to('../birds/index.php');
+
 $errors = [];
 
 if(is_post_request()) {
 
-  // include('../members/captcha.php');
+  // include('captcha.php');
   
   // Create record using post parameters
   $args = $_POST['member'];
@@ -41,7 +44,7 @@ if(is_post_request()) {
 
     <?php echo display_errors($member->errors); ?>
 
-    <form action="<?php echo url_for('/members/signup.php'); ?>" method="post">
+    <form action="signup.php" method="post">
 
       <?php include('../admins/form_fields.php'); ?>
 

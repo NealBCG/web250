@@ -1,8 +1,7 @@
-<?php // Google recaptcha code from: https://www.geeksforgeeks.org/google-recaptcha-integration-in-php/#
-  require_once('../../private/initialize.php');
+<?php require_once('../../private/initialize.php');
 
   if($session->is_logged_in())
-    redirect_to('index.php');
+    redirect_to('../birds/index.php');
 
   $errors = [];
   $username = '';
@@ -21,7 +20,7 @@
       $errors[] = "Password cannot be blank.";
     }
   
-    // include('../members/captcha.php');
+    // include('captcha.php');
 
     // if there were no errors, try to login
     if(empty($errors)) {

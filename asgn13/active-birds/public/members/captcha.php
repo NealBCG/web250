@@ -1,3 +1,4 @@
+// Google recaptcha code from: https://www.geeksforgeeks.org/google-recaptcha-integration-in-php/#
 $recaptcha = $_POST['g-recaptcha-response']; 
 
 // Put secret key here, which we get 
